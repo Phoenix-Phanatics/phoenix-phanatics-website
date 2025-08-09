@@ -3,7 +3,7 @@ import headerImg from "../images/india.jpg"
 export default function Header() {
     return (
         <div 
-            className="bg-cover bg-center h-80 w-full flex flex-col justify-between col-span-2"
+            className="bg-cover bg-center h-80 w-full flex flex-col justify-between col-span-3"
             style={{ backgroundImage: `url(${headerImg})` }}
         >
             <HeaderText>Team 11104</HeaderText>
