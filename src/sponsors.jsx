@@ -6,8 +6,8 @@ export default function Sponsors() {
             <SponsorHeader>Sponsors</SponsorHeader>
             <hr className="my-2" />
             <div className="flex flex-row gap-4 items-center justify-evenly">
-                {sponsors.map((sponsor) => 
-                    <Sponsor name={sponsor.name} image={sponsor.image} />
+                {sponsors.map((sponsor, i) => 
+                    <Sponsor key={i} name={sponsor.name} image={sponsor.image} />
                 )}
             </div>
             <DeleteButton />
