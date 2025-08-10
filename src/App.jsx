@@ -10,13 +10,13 @@ function App() {
   return (
     <div className='flex flex-col items-center justify-start gap-8'>
       <Header />
-      <div className='h-fit w-22/24 grid grid-cols-3 grid-rows-4 items-start justify-items-stretch gap-16 p-4'>
+      <div className='h-fit w-11/12 grid grid-cols-3 grid-rows-3 items-stretch justify-items-stretch gap-16 p-4'>
         <About />
         <FRC />
         <Sponsors />
         <Events />
-        <Footer />
       </div>
+      <Footer />
     </div>
   )
 }

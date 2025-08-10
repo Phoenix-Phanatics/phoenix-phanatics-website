@@ -1,6 +1,6 @@
 export default function FRC() {
     return (
-        <div className="row-span-2">
+        <div className="row-span-2 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
             <FRCHeader>FRC</FRCHeader>
             <hr className="my-2" />
             <FRCExplanation>FRC is an international robotics competition that facilitates both rivalry and community. Yearly, new competitions are created in order to challenge students in new and fun ways.</FRCExplanation>

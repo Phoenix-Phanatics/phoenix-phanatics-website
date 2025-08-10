@@ -1,6 +1,6 @@
 export default function About() {
     return ( 
-        <div className="col-span-2">
+        <div className="col-span-2 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
             <AboutHeader>About Us</AboutHeader>
             <hr className="my-2" />
             <List>

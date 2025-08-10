@@ -2,7 +2,7 @@ import sponsors from "../data/sponsors"
 
 export default function Sponsors() {
     return (
-        <div className="col-span-2">
+        <div className="col-span-2 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
             <SponsorHeader>Sponsors</SponsorHeader>
             <hr className="my-2" />
             <div className="flex flex-row gap-4 items-center justify-evenly">

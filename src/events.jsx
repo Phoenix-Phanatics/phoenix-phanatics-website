@@ -2,7 +2,7 @@ import events from "../data/events"
 
 export default function Events() {
     return (
-        <div className="col-span-3">
+        <div className="col-span-3 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
             <EventHeader>Events</EventHeader>
             <hr className="my-2" />
             <div className="flex gap-4 items-center justify-evenly">

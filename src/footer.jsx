@@ -2,7 +2,7 @@ import columns from "../data/columns";
 
 export default function Footer() {
     return (
-        <div className="col-span-3 self-end flex items-end justify-evenly py-8">
+        <div className="w-dvw flex items-end justify-evenly py-8 bg-[#0d0030] p-4 border-t-2 border-white">
             {columns.map((column, i) => (
                 <Column column={column.links} key={i}>{column.header}</Column>
             ))}
