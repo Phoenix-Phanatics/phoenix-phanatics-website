@@ -2,7 +2,7 @@ import events from "../data/events"
 
 export default function Events() {
     return (
-        <div className="col-span-3 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col">
+        <div className="col-span-3 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col" id="events">
             <EventHeader>Events</EventHeader>
             <hr className="my-2 text-white" />
             <div className="flex gap-4 h-full items-center justify-evenly">
