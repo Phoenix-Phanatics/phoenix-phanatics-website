@@ -1,8 +1,8 @@
 export default function About() {
     return ( 
-        <div className="col-span-2 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
+        <div className="col-span-2 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col">
             <AboutHeader>About Us</AboutHeader>
-            <hr className="my-2" />
+            <hr className="my-2 text-white" />
             <List>
                 <ListItem id={1}>We are a community team based out of the general Middlesex County Area.</ListItem>
                 <ListItem id={2}>We are a First Robotics Team (FRC) team who compete within the First Mid-Atlantic (FMA) district.</ListItem>
@@ -15,20 +15,20 @@ export default function About() {
 
 function AboutHeader({ children }) {
     return (
-        <h1 className="text-6xl text-white text-center">{children}</h1>
+        <h1 className="text-6xl text-main-purple text-center">{children}</h1>
     )
 }
 
 function ListItem({ id, children }) {
     return (
-        <li key={id} className="text-3xl text-white text-center">{children}</li>
+        <li key={id} className="text-3xl text-main-blue leading-10">{children}</li>
     )
 }
 
 function List({ children }) {
     return (
-        <ul>
+        <div className="flex flex-col h-full justify-between self-center w-15/16">
             {children}
-        </ul>
+        </div>
     )
 }

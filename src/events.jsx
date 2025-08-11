@@ -2,10 +2,10 @@ import events from "../data/events"
 
 export default function Events() {
     return (
-        <div className="col-span-3 bg-[#0d0030] p-4 rounded-4xl border-2 border-white">
+        <div className="col-span-3 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col">
             <EventHeader>Events</EventHeader>
-            <hr className="my-2" />
-            <div className="flex gap-4 items-center justify-evenly">
+            <hr className="my-2 text-white" />
+            <div className="flex gap-4 h-full items-center justify-evenly">
                 {events.map((event) => 
                     <Event key={event.id} name={event.name} date={event.date} location={event.location}/>
                 )}
@@ -16,13 +16,13 @@ export default function Events() {
 
 function EventHeader({ children }) {
     return (
-        <h1 className="text-6xl text-center text-white">{children}</h1>
+        <h1 className="text-6xl text-center text-main-purple">{children}</h1>
     )
 }
 
 function Event({ name, date, location }) {
     return (
-        <div className="flex gap-6 items-center justify-center">
+        <div className="flex gap-6 items-center justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl">
             <div>
                 <EventName name={name} />
                 <EventDate date={date} />
@@ -34,7 +34,7 @@ function Event({ name, date, location }) {
 
 function EventName({ name }) {
     return (
-        <p className="text-white text-2xl text-center">{name}</p>
+        <p className="text-main-blue text-2xl text-center">{name}</p>
     )
 }
 
