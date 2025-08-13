@@ -1,6 +1,6 @@
 export default function About() {
     return ( 
-        <div className="col-span-2 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col scroll-mt-28" id="about">
+        <div className="xl:col-span-2 2xl:row-start-1 row-start-2 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col scroll-mt-28" id="about">
             <AboutHeader>About Us</AboutHeader>
             <hr className="my-2 text-white" />
             <List>
@@ -21,7 +21,7 @@ function AboutHeader({ children }) {
 
 function ListItem({ id, children }) {
     return (
-        <li key={id} className="text-3xl text-main-blue leading-10">{children}</li>
+        <li key={id} className="lg:text-3xl md:text-2xl text-[1.3rem] text-main-blue leading-10">{children}</li>
     )
 }
 
