@@ -23,14 +23,14 @@ function Column({ column, children }) {
 
 function ColumnHeader({ children }) {
  return (
-    <h1 className="text-2xl text-main-blue text-center underline">{children}</h1>
+    <h1 className="sm:text-2xl text-lg text-main-blue text-center underline">{children}</h1>
  )
 }
 
 function ColumnLink({ name, link }) {
     return (
         <a href={link}>
-            <p className="text-center text-white">{name}</p>
+            <p className="sm:text-lg text-sm text-center text-white">{name}</p>
         </a>
     )
 }

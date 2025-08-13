@@ -15,13 +15,13 @@ export default function About() {
 
 function AboutHeader({ children }) {
     return (
-        <h1 className="text-6xl text-main-purple text-center">{children}</h1>
+        <h1 className="sm:text-6xl text-5xl text-main-purple text-center">{children}</h1>
     )
 }
 
 function ListItem({ id, children }) {
     return (
-        <li key={id} className="lg:text-3xl md:text-2xl text-[1.3rem] text-main-blue leading-10">{children}</li>
+        <li key={id} className="lg:text-3xl md:text-2xl sm:text-[1.3rem] text-[1rem] text-main-blue leading-10">{children}</li>
     )
 }
 

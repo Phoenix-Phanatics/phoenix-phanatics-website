@@ -17,13 +17,13 @@ export default function FRC() {
 
 function FRCHeader({ children }) {
     return (
-        <h1 className="text-6xl text-main-purple text-center">{children}</h1>
+        <h1 className="sm:text-6xl text-5xl text-main-purple text-center">{children}</h1>
     )
 }
 
 function FRCExplanation({ children }) {
     return (
-        <div className="2xl:text-3xl lg:text-2xl text-[1.25rem] text-main-blue text-center">{children}</div>
+        <div className="2xl:text-3xl lg:text-2xl sm:text-[1.25rem] text-[1rem] text-main-blue text-center">{children}</div>
     )
 }
 
@@ -36,7 +36,7 @@ function FRCVideo({ video }) {
             referrerPolicy="strict-origin-when-cross-origin" 
             allowFullScreen 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            className="my-4 2xl:w-15/16 w-1/2 aspect-video">
+            className="my-4 2xl:w-15/16 sm:w-1/2 w-3/4 aspect-video">
         </iframe>
     );
 }
