@@ -5,7 +5,7 @@ export default function Events() {
         <div className="xl:col-span-3 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col h-full" id="events">
             <EventHeader>Events</EventHeader>
             <hr className="my-2 text-white mb-6" />
-            <div className="flex sm:flex-row flex-col gap-4 h-full items-center justify-evenly overflow-y-auto">
+            <div className="flex sm:flex-row flex-col gap-4 h-full items-center justify-evenly">
                 {events.map((event) => 
                     <Event key={event.id} name={event.name} date={event.date} location={event.location}/>
                 )}
@@ -22,7 +22,7 @@ function EventHeader({ children }) {
 
 function Event({ name, date, location }) {
     return (
-        <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl max-h-45">
+        <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl sm:max-h-full max-h-45">
             <EventName name={name} />
             <EventDate date={date} />
             <EventLocation location={location} />

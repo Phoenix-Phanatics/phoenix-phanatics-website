@@ -23,7 +23,7 @@ function SponsorHeader({ children }) {
 
 function Sponsor({ name, image }) {
     return (
-        <div className="bg-main-bg aspect-square sm:my-6 max-w-60 2xl:w-1/4 max-h-40 rounded-3xl shadow shadow-main-shadow p-8 flex items-center justify-center">
+        <div className="bg-main-bg aspect-square sm:my-6 max-w-60 2xl:w-1/4 sm:max-h-full max-h-40 rounded-3xl shadow shadow-main-shadow p-8 flex items-center justify-center">
             <SponsorImage image={image} />
         </div>
     )
