@@ -1,14 +1,18 @@
 import sponsors from "../data/sponsors"
 
 export default function Sponsors() {
+    
+    const sponsorList = sponsors.map((sponsor, i) => 
+        <Sponsor key={i} name={sponsor.name} image={sponsor.image} />
+    )
+
     return (
         <div className="2xl:col-span-2 2xl:row-span-1 2xl:row-start-2 2xl:col-start-1 xl:row-span-2 xl:row-start-1 xl:col-start-3 row-start-3 flex flex-col h-full w-full bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow overflow-y-auto" id="sponsors">
             <SponsorHeader>Sponsors</SponsorHeader>
             <hr className="my-2 text-white" />
             <div className="flex 2xl:flex-row xl:flex-col flex-row flex-wrap h-full gap-4 items-center justify-evenly">
-                {sponsors.map((sponsor, i) => 
-                    <Sponsor key={i} name={sponsor.name} image={sponsor.image} />
-                )}
+                {(sponsorList.length > 0) ? sponsorList : <SponsorHeader>We currently have no sponsors</SponsorHeader>}
+                {console.log(sponsorList)}
             </div>
             <DeleteButton />
         </div>
@@ -24,7 +28,7 @@ function SponsorHeader({ children }) {
 function Sponsor({ name, image }) {
     return (
         <div className="bg-main-bg aspect-square sm:my-6 max-w-60 2xl:w-1/4 sm:max-h-full max-h-40 rounded-3xl shadow shadow-main-shadow p-8 flex items-center justify-center">
-            <SponsorImage image={image} />
+            <SponsorImage name={name} image={image} />
         </div>
     )
 }
@@ -35,9 +39,9 @@ function SponsorName({ name }) {
     )
 }
 
-function SponsorImage({image}) {
+function SponsorImage({name, image}) {
     return (
-        <img src="../images/india.jpg" alt={image} className="aspect-square w-full" />
+        <img src={image} alt={`${name} Image`} className="aspect-square w-full sm:text-4xl text-3xl text-main-purple text-center" />
     )
 }
 

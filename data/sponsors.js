@@ -1,16 +1,10 @@
 const sponsors = [
+    /*
     {
-        name: "Nasa",
-        image: "Nasa Image",
+        name: "future",
+        image: "../images/future.jpg",
     },
-    {
-        name: "Argosy",
-        image: "Argosy Image",
-    },
-    {
-        name: "Reuters",
-        image: "Reuters Image",
-    },
+    */
 ]
 
 export default sponsors;
