@@ -22,7 +22,7 @@ function EventHeader({ children }) {
 
 function Event({ name, date, location }) {
     return (
-        <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl sm:max-h-full max-h-45">
+        <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl sm:max-h-full">
             <EventName name={name} />
             <EventDate date={date} />
             <EventLocation location={location} />
@@ -51,7 +51,7 @@ function EventDate({ date }) {
 function EventLocation({ location }) {
     return (
         <div className="flex-1 min-h-0 w-full h-full">
-            <iframe src={location} className="border-0 lg:aspect-square 2xl:h-full lg:w-full sm:h-full sm:w-full aspect-auto w-full h-1/2" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src={location} className="border-0 lg:aspect-square 2xl:h-full lg:w-full sm:h-full sm:w-full aspect-auto w-full h-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
     )
 }
