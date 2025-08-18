@@ -33,12 +33,6 @@ function Sponsor({ name, image }) {
     )
 }
 
-function SponsorName({ name }) {
-    return (
-        <p className="text-2xl text-main-blue text-center my-2">{name}</p>
-    )
-}
-
 function SponsorImage({name, image}) {
     return (
         <img src={image} alt={`${name} Image`} className="aspect-square w-full sm:text-4xl text-3xl text-main-purple text-center" />
