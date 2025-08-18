@@ -50,6 +50,8 @@ function EventDate({ date }) {
 
 function EventLocation({ location }) {
     return (
-        <iframe src={location} className="border-0 lg:aspect-square 2xl:h-full lg:w-full sm:h-full sm:w-full aspect-auto w-full h-1/2" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <div className="flex-1 min-h-0 w-full h-full">
+            <iframe src={location} className="border-0 lg:aspect-square 2xl:h-full lg:w-full sm:h-full sm:w-full aspect-auto w-full h-1/2" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     )
 }
