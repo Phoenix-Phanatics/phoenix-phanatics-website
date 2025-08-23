@@ -1,3 +1,5 @@
+import { Subheader, Paragraph } from "./general";
+
 export default function FRC() {
     return (
         <div className="2xl:row-span-2 2xl:col-span-1 xl:col-span-2 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col">
@@ -17,13 +19,13 @@ export default function FRC() {
 
 function FRCHeader({ children }) {
     return (
-        <h1 className="sm:text-6xl text-5xl text-main-purple text-center">{children}</h1>
+        <Subheader>{children}</Subheader>
     )
 }
 
 function FRCExplanation({ children }) {
     return (
-        <div className="2xl:text-3xl lg:text-2xl sm:text-[1.25rem] text-[1rem] text-main-blue text-center">{children}</div>
+        <Paragraph>{children}</Paragraph>
     )
 }
 

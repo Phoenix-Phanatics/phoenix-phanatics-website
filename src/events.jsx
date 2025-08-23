@@ -1,4 +1,5 @@
 import events from "../data/events"
+import { Subheader } from "./general"
 
 export default function Events() {
     return (
@@ -16,7 +17,7 @@ export default function Events() {
 
 function EventHeader({ children }) {
     return (
-        <h1 className="sm:text-6xl text-5xl text-center text-main-purple">{children}</h1>
+        <Subheader>{children}</Subheader>
     )
 }
 

@@ -1,4 +1,5 @@
 import sponsors from "../data/sponsors"
+import { Subheader } from "./general"
 
 export default function Sponsors() {
     
@@ -12,7 +13,6 @@ export default function Sponsors() {
             <hr className="my-2 text-white" />
             <div className="flex 2xl:flex-row xl:flex-col flex-row flex-wrap h-full gap-4 items-center justify-evenly">
                 {(sponsorList.length > 0) ? sponsorList : <Sponsorless>We currently have no sponsors</Sponsorless>}
-                {console.log(sponsorList)}
             </div>
             <DeleteButton />
         </div>
@@ -21,13 +21,13 @@ export default function Sponsors() {
 
 function SponsorHeader({ children }) {
     return (
-        <h1 className="sm:text-6xl text-5xl text-main-purple text-center pb-2">{children}</h1>
+        <Subheader className="pb-2">{children}</Subheader>
     )
 }
 
 function Sponsorless({ children }) {
     return (
-        <h1 className="sm:text-4xl text-3xl text-main-blue text-center pb-2">{children}</h1>
+        <h1 className="sm:text-4xl text-2xl text-main-blue text-center pb-2">{children}</h1>
     )
 }
 

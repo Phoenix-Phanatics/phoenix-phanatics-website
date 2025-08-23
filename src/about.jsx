@@ -1,3 +1,5 @@
+import { Subheader, Item } from "./general"
+
 export default function About() {
     return ( 
         <div className="xl:col-span-2 2xl:row-start-1 row-start-2 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col scroll-mt-28" id="about">
@@ -15,19 +17,19 @@ export default function About() {
 
 function AboutHeader({ children }) {
     return (
-        <h1 className="sm:text-6xl text-5xl text-main-purple text-center">{children}</h1>
+        <Subheader>{children}</Subheader>
     )
 }
 
 function ListItem({ id, children }) {
     return (
-        <li key={id} className="lg:text-3xl md:text-2xl sm:text-[1.3rem] text-[1rem] text-main-blue leading-10">{children}</li>
+        <Item id={id}>{children}</Item>
     )
 }
 
 function List({ children }) {
     return (
-        <div className="flex flex-col h-full justify-between self-center w-15/16">
+        <div className="flex flex-col h-full justify-evenly self-center w-15/16">
             {children}
         </div>
     )
