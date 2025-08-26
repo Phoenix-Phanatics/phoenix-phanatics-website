@@ -8,7 +8,7 @@ export default function Events() {
             <hr className="my-2 text-white mb-6" />
             <div className="flex sm:flex-row flex-col gap-4 h-full items-center justify-evenly">
                 {events.map((event) => 
-                    <Event key={event.id} name={event.name} date={event.date} location={event.location}/>
+                    <Event key={event.id} name={event.name} date={event.date} location={event.location} link={event.link} />
                 )}
             </div>
         </div>
@@ -21,20 +21,22 @@ function EventHeader({ children }) {
     )
 }
 
-function Event({ name, date, location }) {
+function Event({ name, date, location, link }) {
     return (
         <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl sm:max-h-full">
-            <EventName name={name} />
+            <EventName name={name} link={link} />
             <EventDate date={date} />
             <EventLocation location={location} />
         </div>
     )
 }
 
-function EventName({ name }) {
+function EventName({ name, link }) {
     return (
         <div className="sm:h-16 flex items-center">
-            <p className="text-main-blue sm:text-2xl text-[1rem] text-center">{name}</p>
+            <a href={link} target="_blank">
+                <p className="text-main-blue sm:text-2xl text-[1rem] text-center">{name}</p>
+            </a>
         </div>
     )
 }

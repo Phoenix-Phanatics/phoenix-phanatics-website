@@ -6,6 +6,10 @@ const columns = [
                 name: "Team Website",
                 link: "https://phoenixphanatics.club"
             },
+            {
+                name: "Team Email",
+                link: "mailto:phoenixphanatics11104@gmail.com"
+            }
         ]
     },
     {

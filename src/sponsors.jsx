@@ -12,9 +12,9 @@ export default function Sponsors() {
             <SponsorHeader>Sponsors</SponsorHeader>
             <hr className="my-2 text-white" />
             <div className="flex 2xl:flex-row xl:flex-col flex-row flex-wrap h-full gap-4 items-center justify-evenly">
-                {(sponsorList.length > 0) ? sponsorList : <Sponsorless>We currently have no sponsors</Sponsorless>}
+                {(sponsorList.length > 0) ? sponsorList : <Sponsorless>We currently have no sponsors, but if you are interested please reach out at the email provided below!</Sponsorless>}
             </div>
-            <DeleteButton />
+            {/* <DeleteButton /> */}
         </div>
     )
 }
