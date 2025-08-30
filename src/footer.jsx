@@ -2,7 +2,7 @@ import columns from "../data/columns";
 
 export default function Footer() {
     return (
-        <div className="w-full flex items-start justify-evenly py-8 bg-secondary-bg p-4 border-t-2 border-white" id="socials">
+        <div className="w-full flex items-start justify-evenly bg-secondary-bg p-4 border-t-2 border-white" id="socials">
             {columns.map((column, i) => (
                 <Column column={column.links} key={i}>{column.header}</Column>
             ))}
@@ -12,7 +12,7 @@ export default function Footer() {
 
 function Column({ column, children }) {
     return (
-        <div className="flex flex-col items-center justify-between gap-2">
+        <div className="flex flex-col items-center justify-between gap-1">
             <ColumnHeader>{children}</ColumnHeader>
             {column.map((link, i) => (
                 <ColumnLink key={i} name={link.name} link={link.link} />
@@ -29,7 +29,7 @@ function ColumnHeader({ children }) {
 
 function ColumnLink({ name, link }) {
     return (
-        <a href={link}>
+        <a href={link} target="_blank">
             <p className="sm:text-lg text-sm text-center text-white">{name}</p>
         </a>
     )

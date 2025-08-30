@@ -3,12 +3,20 @@ const columns = [
         header: "Team Socials",
         links: [
             {
-                name: "Team Website",
+                name: "Website",
                 link: "https://phoenixphanatics.club"
             },
             {
-                name: "Team Email",
+                name: "Email",
                 link: "mailto:phoenixphanatics11104@gmail.com"
+            },
+            {
+                name: "Instagram",
+                link: "https://www.instagram.com/phoenixphanatics11104/"
+            },
+            {
+                name: "GoFundMe",
+                link: "https://gofund.me/5b87b949"
             }
         ]
     },
