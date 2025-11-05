@@ -1,17 +1,66 @@
+import { motion } from 'framer-motion'
 import events from "../data/events"
+import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card'
+import { Separator } from './components/ui/separator'
+import { Badge } from './components/ui/badge'
 import { Subheader } from "./general"
 
 export default function Events() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+            }
+        }
+    }
+
+    const eventVariants = {
+        hidden: { y: 50, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        }
+    }
+
     return (
-        <div className="xl:col-span-3 bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow flex flex-col h-full" id="events">
-            <EventHeader>Events</EventHeader>
-            <hr className="my-2 text-white mb-6" />
-            <div className="flex sm:flex-row flex-col gap-4 h-full items-center justify-evenly">
-                {events.map((event) => 
-                    <Event key={event.id} name={event.name} date={event.date} location={event.location} link={event.link} />
-                )}
-            </div>
-        </div>
+        <motion.div
+            className="xl:col-span-3"
+            id="events"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+        >
+            <Card className="h-full hover:shadow-fire-orange/40 hover:scale-[1.01] transition-all duration-300 hover:border-fire-orange/50">
+                <CardHeader>
+                    <div className="flex items-center gap-3 flex-wrap">
+                        <CardTitle>Events</CardTitle>
+                        <Badge variant="default">{events.length} Upcoming</Badge>
+                    </div>
+                </CardHeader>
+                <Separator className="mb-6" />
+                <CardContent>
+                    <motion.div 
+                        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
+                        {events.map((event) => 
+                            <Event key={event.id} name={event.name} date={event.date} location={event.location} link={event.link} variants={eventVariants} />
+                        )}
+                    </motion.div>
+                </CardContent>
+            </Card>
+        </motion.div>
     )
 }
 
@@ -21,21 +70,37 @@ function EventHeader({ children }) {
     )
 }
 
-function Event({ name, date, location, link }) {
+function Event({ name, date, location, link, variants }) {
     return (
-        <div className="flex flex-col h-full sm:gap-6 gap-2 items-center xl:justify-center sm:justify-between justify-center bg-main-bg shadow shadow-main-shadow p-4 rounded-3xl sm:max-h-full">
-            <EventName name={name} link={link} />
-            <EventDate date={date} />
-            <EventLocation location={location} />
-        </div>
+        <motion.div
+            variants={variants}
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
+        >
+            <Card className="h-full flex flex-col hover:shadow-fire-orange/50 hover:border-fire-orange/50 bg-main-bg/80">
+                <CardContent className="p-4 flex flex-col gap-4 h-full">
+                    <EventName name={name} link={link} />
+                    <EventDate date={date} />
+                    <div className="flex-1 min-h-[200px]">
+                        <EventLocation location={location} />
+                    </div>
+                </CardContent>
+            </Card>
+        </motion.div>
     )
 }
 
 function EventName({ name, link }) {
     return (
-        <div className="sm:h-16 flex items-center">
-            <a href={link} target="_blank">
-                <p className="text-main-blue sm:text-2xl text-[1rem] text-center">{name}</p>
+        <div className="flex items-center justify-center min-h-[3rem]">
+            <a href={link} target="_blank" rel="noopener noreferrer">
+                <motion.h3 
+                    className="text-fire-orange text-xl font-semibold text-center hover:text-fire-red transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    {name}
+                </motion.h3>
             </a>
         </div>
     )
@@ -43,18 +108,38 @@ function EventName({ name, link }) {
 
 function EventDate({ date }) {
     return (
-        <div className="sm:h-16 flex xl:flex-row sm:flex-col flex-row items-center xl:order-0 xl:mt-[-1.5rem] order-1">
-            <p className="text-white sm:text-2xl text-[1rem] text-center">{date.month}</p>
-            <p className="text-white sm:text-2xl text-[1rem] text-center sm:hidden xl:block block">&nbsp;</p>
-            <p className="text-white sm:text-2xl text-[1rem] text-center">{date.day}</p>
-        </div>
+        <motion.div 
+            className="flex items-center justify-center gap-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+        >
+            <Badge variant="outline" className="text-base px-4 py-1">
+                {date.month} {date.day}
+            </Badge>
+        </motion.div>
     )
 }
 
 function EventLocation({ location }) {
     return (
-        <div className="flex-1 min-h-0 w-full h-full">
-            <iframe src={location} className="border-0 lg:aspect-square 2xl:h-full lg:w-full sm:h-full sm:w-full aspect-auto w-full h-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <motion.div 
+            className="w-full h-full rounded-lg overflow-hidden border border-fire-orange/20 shadow-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+        >
+            <iframe 
+                src={location} 
+                className="w-full h-full min-h-[200px]" 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Event Location"
+            />
+        </motion.div>
     )
 }

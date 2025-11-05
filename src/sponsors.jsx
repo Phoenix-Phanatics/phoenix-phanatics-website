@@ -1,21 +1,69 @@
+import { motion } from 'framer-motion'
 import sponsors from "../data/sponsors"
+import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card'
+import { Separator } from './components/ui/separator'
+import { Badge } from './components/ui/badge'
 import { Subheader } from "./general"
 
 export default function Sponsors() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    }
+
+    const sponsorVariants = {
+        hidden: { scale: 0, opacity: 0 },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+            }
+        }
+    }
     
     const sponsorList = sponsors.map((sponsor, i) => 
-        <Sponsor key={i} name={sponsor.name} image={sponsor.image} />
+        <Sponsor key={i} name={sponsor.name} image={sponsor.image} variants={sponsorVariants} />
     )
 
     return (
-        <div className="2xl:col-span-2 2xl:row-span-1 2xl:row-start-2 2xl:col-start-1 xl:row-span-2 xl:row-start-1 xl:col-start-3 row-start-3 flex flex-col h-full w-full bg-secondary-bg p-6 rounded-3xl shadow shadow-main-shadow overflow-y-auto" id="sponsors">
-            <SponsorHeader>Sponsors</SponsorHeader>
-            <hr className="my-2 text-white" />
-            <div className="flex 2xl:flex-row xl:flex-col flex-row flex-wrap h-full gap-4 items-center justify-evenly">
-                {(sponsorList.length > 0) ? sponsorList : <Sponsorless>We currently have no sponsors, but if you are interested please reach out at the email provided below!</Sponsorless>}
-            </div>
-            {/* <DeleteButton /> */}
-        </div>
+        <motion.div
+            className="2xl:col-span-2 2xl:row-span-1 2xl:row-start-2 2xl:col-start-1 xl:row-span-2 xl:row-start-1 xl:col-start-3 row-start-3"
+            id="sponsors"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+        >
+            <Card className="h-full overflow-y-auto hover:shadow-violet/40 hover:scale-[1.02] transition-all duration-300 hover:border-violet/50">
+                <CardHeader>
+                    <div className="flex items-center gap-3 flex-wrap">
+                        <CardTitle>Sponsors</CardTitle>
+                        <Badge variant="secondary">{sponsors.length} Partners</Badge>
+                    </div>
+                </CardHeader>
+                <Separator className="mb-4" />
+                <CardContent>
+                    <motion.div 
+                        className="flex 2xl:flex-row xl:flex-col flex-row flex-wrap gap-6 items-center justify-center"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
+                        {(sponsorList.length > 0) ? sponsorList : <Sponsorless>We currently have no sponsors, but if you are interested please reach out at the email provided below!</Sponsorless>}
+                    </motion.div>
+                </CardContent>
+            </Card>
+        </motion.div>
     )
 }
 
@@ -27,21 +75,46 @@ function SponsorHeader({ children }) {
 
 function Sponsorless({ children }) {
     return (
-        <h1 className="sm:text-4xl text-2xl text-main-blue text-center pb-2">{children}</h1>
+        <motion.div 
+            className="text-center py-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+        >
+            <p className="text-fire-orange text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed">
+                {children}
+            </p>
+        </motion.div>
     )
 }
 
-function Sponsor({ name, image }) {
+function Sponsor({ name, image, variants }) {
     return (
-        <div className="bg-main-bg aspect-square sm:my-6 max-w-60 2xl:w-1/4 sm:max-h-full max-h-40 rounded-3xl shadow shadow-main-shadow p-8 flex items-center justify-center">
-            <SponsorImage name={name} image={image} />
-        </div>
+        <motion.div 
+            variants={variants}
+            whileHover={{ 
+                scale: 1.1, 
+                rotate: [0, -5, 5, 0]
+            }}
+            transition={{ duration: 0.3 }}
+            className="group"
+        >
+            <Card className="aspect-square w-40 sm:w-48 md:w-52 p-6 flex items-center justify-center cursor-pointer hover:shadow-fire-red/50 hover:border-fire-red/50 transition-all bg-main-bg/80">
+                <SponsorImage name={name} image={image} />
+            </Card>
+        </motion.div>
     )
 }
 
 function SponsorImage({name, image}) {
     return (
-        <img src={image} alt={`${name} Image`} className="aspect-square w-full sm:text-4xl text-3xl text-main-purple text-center" />
+        <motion.img 
+            src={image} 
+            alt={`${name} Logo`} 
+            className="w-full h-full object-contain"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+        />
     )
 }
 
