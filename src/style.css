@@ -2,10 +2,281 @@
 @import "tailwindcss";
 
 @theme {
-    --color-main-bg: #141414;
-    --color-secondary-bg: #101010;
+    --color-main-bg: #1a0a0f;
+    --color-secondary-bg: #140408;
     --color-main-shadow: #616161;
-    --color-main-purple: #821fde;
-    --color-main-blue: #00aaff;
+    --color-main-purple: #C41E3A;
+    --color-main-blue: #FF4500;
+    --color-fire-red: #FF4500;
+    --color-fire-orange: #FF6B35;
+    --color-fire-yellow: #FFD23F;
+    --color-violet: #C41E3A;
+    --color-dark-violet: #8B1538;
     --font-mozilla: "Mozilla Text", sans-serif;
+    
+    /* shadcn-compatible theme values */
+    --radius: 1rem;
+}
+
+/* Custom utility classes */
+.bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Keyframe Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(130, 31, 222, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(130, 31, 222, 0.6);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate-gradient {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes fire-flicker {
+    0%, 100% {
+        transform: scaleY(1) scaleX(1);
+        opacity: 0.9;
+    }
+    25% {
+        transform: scaleY(1.1) scaleX(0.95);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(0.95) scaleX(1.05);
+        opacity: 0.85;
+    }
+    75% {
+        transform: scaleY(1.05) scaleX(0.98);
+        opacity: 0.95;
+    }
+}
+
+@keyframes ember-rise {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) translateX(var(--drift, 20px)) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes phoenix-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+        filter: blur(10px);
+    }
+    50% {
+        opacity: 0.5;
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes fire-glow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px #FF4500,
+            0 0 20px #FF4500,
+            0 0 30px #FF6B35,
+            0 0 40px #C41E3A,
+            0 0 70px #C41E3A;
+    }
+    50% {
+        text-shadow: 
+            0 0 20px #FF4500,
+            0 0 30px #FF6B35,
+            0 0 40px #FF6B35,
+            0 0 50px #C41E3A,
+            0 0 80px #C41E3A,
+            0 0 100px #8B1538;
+    }
+}
+
+@keyframes flame-dance {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Utility classes for animations */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+.animate-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced transitions for all interactive elements */
+* {
+    transition-property: transform, box-shadow, filter;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on page load */
+.no-transition {
+    transition: none !important;
+}
+
+/* Fire effect classes */
+.fire-container {
+    position: relative;
+    display: inline-block;
+}
+
+.fire-base {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, 
+        #FF4500 0%,
+        #FF6B35 40%,
+        #FFD23F 70%,
+        transparent 100%
+    );
+    filter: blur(15px);
+    animation: fire-flicker 2s ease-in-out infinite;
+    opacity: 0.4;
+}
+
+.ember {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #FFD23F, #FF6B35);
+    border-radius: 50%;
+    animation: ember-rise 3s ease-out infinite;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.phoenix-text {
+    animation: phoenix-rise 2s ease-out forwards;
+    position: relative;
+    z-index: 10;
+}
+
+.flame-gradient {
+    background: linear-gradient(
+        45deg,
+        #FF4500,
+        #FF6B35,
+        #C41E3A,
+        #8B1538,
+        #FF4500
+    );
+    background-size: 400% 400%;
+    animation: flame-dance 5s ease infinite;
 }
