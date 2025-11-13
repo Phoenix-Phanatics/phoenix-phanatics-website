@@ -49,7 +49,7 @@ function App() {
       >
         <motion.div variants={itemVariants}><About /></motion.div>
         <motion.div variants={itemVariants}><FRC /></motion.div>
-        <motion.div variants={itemVariants} className='md:row-span-2'><Sponsors /></motion.div>
+        <motion.div variants={itemVariants}><Sponsors /></motion.div>
         <motion.div variants={itemVariants} className="xl:col-span-3"><Events /></motion.div>
       </motion.div>
       
