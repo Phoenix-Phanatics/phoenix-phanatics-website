@@ -42,15 +42,15 @@ function App() {
       {/* Content section with staggered animation */}
       <motion.div 
         ref={contentRef}
-        className='h-fit w-11/12 max-w-[1600px] grid xl:grid-cols-3 xl:grid-rows-3 grid-rows-4 items-stretch justify-items-stretch gap-8 md:gap-12 lg:gap-16 p-4 md:p-8 my-16'
+        className='h-fit w-11/12 max-w-[1600px] grid xl:grid-cols-3 xl:grid-rows-2 grid-rows-4 items-stretch justify-items-stretch gap-8 md:gap-12 lg:gap-16 p-4 md:p-8 my-16'
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         <motion.div variants={itemVariants}><About /></motion.div>
         <motion.div variants={itemVariants}><FRC /></motion.div>
-        <motion.div variants={itemVariants}><Sponsors /></motion.div>
-        <motion.div variants={itemVariants}><Events /></motion.div>
+        <motion.div variants={itemVariants} className='md:row-span-2'><Sponsors /></motion.div>
+        <motion.div variants={itemVariants} className="xl:col-span-3"><Events /></motion.div>
       </motion.div>
       
       <Footer />
