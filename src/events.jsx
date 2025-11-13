@@ -31,14 +31,14 @@ export default function Events() {
 
     return (
         <motion.div
-            className="xl:col-span-3"
+            className='h-full'
             id="events"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
         >
-            <Card className="h-full hover:shadow-fire-orange/40 hover:scale-[1.01] transition-all duration-300 hover:border-fire-orange/50">
+            <Card className="h-full flex flex-col hover:shadow-fire-orange/40 hover:scale-[1.01] transition-all duration-300 hover:border-fire-orange/50">
                 <CardHeader>
                     <div className="flex items-center gap-3 flex-wrap">
                         <CardTitle>Events</CardTitle>
@@ -46,9 +46,9 @@ export default function Events() {
                     </div>
                 </CardHeader>
                 <Separator className="mb-6" />
-                <CardContent>
+                <CardContent className="flex-1 flex">
                     <motion.div 
-                        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                        className="flex justify-evenly items-center gap-6 w-full h-full"
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -64,20 +64,15 @@ export default function Events() {
     )
 }
 
-function EventHeader({ children }) {
-    return (
-        <Subheader>{children}</Subheader>
-    )
-}
-
 function Event({ name, date, location, link, variants }) {
     return (
         <motion.div
             variants={variants}
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
+            className="h-full flex"
         >
-            <Card className="h-full flex flex-col hover:shadow-fire-orange/50 hover:border-fire-orange/50 bg-main-bg/80">
+            <Card className="h-full w-full flex flex-col hover:shadow-fire-orange/50 hover:border-fire-orange/50 bg-main-bg/80">
                 <CardContent className="p-4 flex flex-col gap-4 h-full">
                     <EventName name={name} link={link} />
                     <EventDate date={date} />

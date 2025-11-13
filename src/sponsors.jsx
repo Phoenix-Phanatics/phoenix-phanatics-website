@@ -36,7 +36,7 @@ export default function Sponsors() {
 
     return (
         <motion.div
-            className="2xl:col-span-2 2xl:row-span-1 2xl:row-start-2 2xl:col-start-1 xl:row-span-2 xl:row-start-1 xl:col-start-3 row-start-3"
+            className="2xl:col-span-2 2xl:row-span-1 2xl:row-start-2 2xl:col-start-1 xl:row-span-2 xl:row-start-1 xl:col-start-3 row-start-3 row-span-1 md:row-span-2"
             id="sponsors"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,12 +64,6 @@ export default function Sponsors() {
                 </CardContent>
             </Card>
         </motion.div>
-    )
-}
-
-function SponsorHeader({ children }) {
-    return (
-        <Subheader className="pb-2">{children}</Subheader>
     )
 }
 
@@ -118,7 +112,7 @@ function SponsorImage({name, image}) {
     )
 }
 
-function DeleteButton() {
+function SponsorshipPacketButton() {
     return (
         <div className="flex justify-end items-end sm:mt-0 mt-2">
             <a href="./style.css" download> 
