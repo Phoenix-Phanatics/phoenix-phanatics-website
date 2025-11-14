@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card'
-import { Separator } from './components/ui/separator'
-import { Badge } from './components/ui/badge'
-import { Subheader, Item } from "./general"
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card'
+import { Separator } from '../ui/separator'
+import { Badge } from '../ui/badge'
+import { Subheader, Item } from "../ui/general"
 
 export default function About() {
     const listVariants = {
@@ -50,7 +50,7 @@ export default function About() {
                         <ListItem id={1} variants={itemVariants}>We are a community team based out of the general Middlesex County Area.</ListItem>
                         <ListItem id={2} variants={itemVariants}>We are a First Robotics Competition (FRC) team who compete within the First Mid-Atlantic (FMA) district.</ListItem>
                         <ListItem id={3} variants={itemVariants}>Our team was founded between the 2025 and 2026 seasons.</ListItem>
-                        <ListItem id={4} variants={itemVariants}>The goal of our team is to teach robotics to those who may have not been able to in their own schools. We hope to spread the love of robitcs and competition that FRC inspires.</ListItem>
+                        <ListItem id={4} variants={itemVariants}>The goal of our team is to teach robotics to those who may have not been able to in their own schools. We hope to spread the love of robotics and competition that FRC inspires.</ListItem>
                     </List>
                 </CardContent>
             </Card>

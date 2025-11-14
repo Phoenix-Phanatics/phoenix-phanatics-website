@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Separator } from './components/ui/separator'
-import columns from "../data/columns";
+import { Separator } from '../ui/separator'
+import columns from "../../../data/columns";
 
 export default function Footer() {
     const containerVariants = {

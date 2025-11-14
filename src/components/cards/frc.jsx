@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card'
-import { Separator } from './components/ui/separator'
-import { Badge } from './components/ui/badge'
-import { Subheader, Paragraph } from "./general";
+import { Card, CardHeader, CardTitle, CardContent } from '../ui/card'
+import { Separator } from '../ui/separator'
+import { Badge } from '../ui/badge'
+import { Subheader, Paragraph } from "../ui/general";
 
 export default function FRC() {
     return (
