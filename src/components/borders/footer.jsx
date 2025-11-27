@@ -1,8 +1,37 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import { Separator } from '../ui/separator'
+import { supabase } from '../../supabaseClient';
 import columns from "../../../data/columns";
 
 export default function Footer() {
+
+    const [footerItems, setFooterItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchFooterItems = async () => {
+            const { data, error } = await supabase
+                .from('footer_sections')
+                .select('header, links:footer_links(name, link)')
+                .order('id', { ascending: true })
+                .order('id', { foreignTable: 'footer_links', ascending: true });
+
+            if (error) {
+                console.error('Error fetching events:', error);
+            } else {
+                setFooterItems(data);
+            }
+            setLoading(false);
+        };
+
+        fetchFooterItems();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
@@ -38,9 +67,9 @@ export default function Footer() {
         >
             <div className="max-w-7xl mx-auto px-6 py-8">
                 <div className="flex flex-wrap items-start justify-around gap-8">
-                    {columns.map((column, i) => (
-                        <Column column={column.links} key={i} variants={columnVariants}>
-                            {column.header}
+                    {columns.map((footerItems, i) => (
+                        <Column column={footerItems.links} key={i} variants={columnVariants}>
+                            {footerItems.header}
                         </Column>
                     ))}
                 </div>

@@ -1,13 +1,22 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-const Card = React.forwardRef(({ className, ...props }, ref) => (
+const Card = React.forwardRef(({ className, link, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
       "rounded-3xl border border-main-shadow bg-secondary-bg shadow-lg shadow-main-shadow transition-all duration-300",
-      className
+      className,
+      link && "cursor-pointer"
     )}
+    onClick={() => link && window.open(link, "_blank", "noopener,noreferrer")}
+    onKeyDown={(e) => {
+      if (link && e.key === 'Enter') {
+        window.open(link, '_blank', 'noopener,noreferrer');
+      }
+    }}
+    role={link ? 'link' : undefined}
+    tabIndex={link ? 0 : undefined}
     {...props}
   />
 ))
