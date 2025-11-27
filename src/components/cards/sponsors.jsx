@@ -57,7 +57,7 @@ export default function Sponsors() {
     }
     
     const sponsorList = sponsors.map((sponsor, i) => 
-        <Sponsor key={i} name={sponsor.name} image={sponsor.image} variants={sponsorVariants} />
+        <Sponsor key={i} name={sponsor.name} image={sponsor.image} link={sponsor.link} variants={sponsorVariants} />
     )
 
     return (
@@ -108,7 +108,7 @@ function Sponsorless({ children }) {
     )
 }
 
-function Sponsor({ name, image, variants }) {
+function Sponsor({ name, image, link, variants }) {
     return (
         <motion.div 
             variants={variants}
@@ -119,7 +119,7 @@ function Sponsor({ name, image, variants }) {
             transition={{ duration: 0.3 }}
             className="group"
         >
-            <Card className="aspect-square w-40 sm:w-48 md:w-52 p-6 flex items-center justify-center cursor-pointer hover:shadow-fire-red/50 hover:border-fire-red/50 transition-all bg-main-bg/80">
+            <Card link={link} className="aspect-square w-40 sm:w-48 md:w-52 p-6 flex items-center justify-center cursor-pointer hover:shadow-fire-red/50 hover:border-fire-red/50 transition-all bg-main-bg/80">
                 <SponsorImage name={name} image={image} />
             </Card>
         </motion.div>
