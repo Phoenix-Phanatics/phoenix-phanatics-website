@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import { Separator } from '../ui/separator'
 import { supabase } from '../../supabaseClient';
-import columns from "../../../data/columns";
 
 export default function Footer() {
 
@@ -67,9 +66,10 @@ export default function Footer() {
         >
             <div className="max-w-7xl mx-auto px-6 py-8">
                 <div className="flex flex-wrap items-start justify-around gap-8">
-                    {columns.map((footerItems, i) => (
-                        <Column column={footerItems.links} key={i} variants={columnVariants}>
-                            {footerItems.header}
+                    {console.log(footerItems)}
+                    {footerItems.map((footerItem, i) => (
+                        <Column column={footerItem.links} key={i} variants={columnVariants}>
+                            {footerItem.header}
                         </Column>
                     ))}
                 </div>
