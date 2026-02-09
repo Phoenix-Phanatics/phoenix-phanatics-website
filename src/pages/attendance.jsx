@@ -1,12 +1,12 @@
 import HeaderBackground from '../components/cards/headerBackground'
-import { Card } from '../components/ui/card'
+import AttendanceCard from '../components/cards/attendanceCard'
 
 function Attendance() {
 	return (
 		<HeaderBackground>
-			<Card title="Attendance" className="w-full max-w-4xl p-8">
-				<p className="text-gray-300">Attendance Page</p>
-			</Card>
+			<div className="relative z-10">
+				<AttendanceCard />
+			</div>
 		</HeaderBackground>
 	)
 }
