@@ -1,9 +1,13 @@
+import HeaderBackground from '../components/cards/headerBackground'
+import { Card } from '../components/ui/card'
+
 function Admin() {
 	return (
-		<div className="admin">
-			<h1>Admin Page</h1>
-			<p>This is the admin page. Only authorized users can access this page.</p>
-		</div>
+		<HeaderBackground>
+			<Card title="Admin Dashboard" className="w-full max-w-4xl p-8">
+				<p className="text-gray-300">Admin Dashboard</p>
+			</Card>
+		</HeaderBackground>
 	)
 }
 
