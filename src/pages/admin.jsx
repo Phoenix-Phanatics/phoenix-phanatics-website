@@ -1,12 +1,15 @@
 import HeaderBackground from '../components/cards/headerBackground'
-import { Card } from '../components/ui/card'
+import AdminLoginCard from '../components/cards/adminLogin'
+import { useNavigate } from 'react-router-dom'
 
 function Admin() {
+	const navigate = useNavigate()
+
 	return (
 		<HeaderBackground>
-			<Card title="Admin Dashboard" className="w-full max-w-4xl p-8">
-				<p className="text-gray-300">Admin Dashboard</p>
-			</Card>
+			<div className="relative z-10">
+				<AdminLoginCard onLoginSuccess={() => navigate('/attendance')} />
+			</div>
 		</HeaderBackground>
 	)
 }
