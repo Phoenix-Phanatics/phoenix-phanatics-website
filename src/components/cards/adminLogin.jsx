@@ -35,7 +35,7 @@ const AdminLoginCard = ({ onLoginSuccess }) => {
 			.from('profiles')
 			.select('role')
 			.eq('id', authData.user.id)
-			.single();
+			.maybeSingle();
 
 		if (profileError || profile?.role !== 'admin') {
 			await supabase.auth.signOut();
